@@ -1,16 +1,23 @@
-import { personaje } from "./personaje.js";
-import { mago } from "./mago.js";
-import { guerrero } from "./guerrero.js"
+import { Criatura } from "./Criatura.js";
+import { Monstruo } from "./Monstruo.js";
+import { Heroe } from "./Heroe.js"
+import { Orco } from "./Orco.js";
+import { Goblin } from "./Goblin.js";
+import { Kobold } from "./Kobold.js";
 
 
 
 
-let personajeDefault = new personaje();
-let personajeGuerrero1 = new guerrero("Manuel");
-let personajeMago1 = new mago("Maria");
+let personajeDefault = new Criatura();
+let Heroe1 = new Heroe("Manuel");
+let Orco1 = new Orco();
+let Goblin1 = new Goblin();
+let Kobold1 = new Kobold();
 console.log(personajeDefault);
-console.log(personajeGuerrero1);
-console.log(personajeMago1)
+console.log(Heroe1);
+console.log(Orco1)
+console.log(Goblin1)
+console.log(Kobold1)
 
 
 
