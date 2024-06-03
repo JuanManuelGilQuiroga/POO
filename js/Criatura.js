@@ -14,4 +14,10 @@ export class Criatura{
     set setAtaque(puntos){
         this.#ataque += puntos;
     }
+    get getVidaMaxima(){
+        return this.#vidaMaxima
+    }
+    get getAtaque(){
+        return this.#ataque
+    }
 }
