@@ -3,6 +3,6 @@ export class PocionFuerza extends Item{
     constructor(){
         super();
         this.setNombre = "Pocion de fuerza";
-        this.setFuerza = 20;
+        this.Fuerza = 70;
     }
 }

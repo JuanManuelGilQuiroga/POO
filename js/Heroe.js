@@ -6,11 +6,8 @@ export class Heroe extends Criatura{
         this.getVidaMaxima;
         this.setNombre = nom;
         this.setVida = 0;
-        this.inventario = Inventario;
+        this.inventario = [];
     }
-    /*utilizarItem(this){
-
-    }*/
     get getInventario(){
         return this.inventario
     }
