@@ -5,6 +5,7 @@ import { Orco } from "./Orco.js";
 import { Goblin } from "./Goblin.js";
 import { Kobold } from "./Kobold.js";
 import { Juego } from "./Juego.js";
+import { ClaroDeLaAlianza } from "./areas/ClaroDeLaAlianza.js";
 
 
 
@@ -21,6 +22,7 @@ console.log(Orco1)
 console.log(Goblin1)
 console.log(Kobold1)
 console.log(juego)
+console.log(new ClaroDeLaAlianza)
 
 
 

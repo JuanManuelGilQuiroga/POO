@@ -1,6 +1,8 @@
-import { Orco } from "./Orco.js";
-import { Goblin } from "./Goblin.js";
-import { Kobold } from "./Kobold.js";
+import { ClaroDeLaAlianza } from "./areas/ClaroDeLaAlianza.js";
+import { Colina } from "./areas/Colina.js";
+import { LagunaEncantada } from "./areas/LagunaEncantada.js";
+import { PasoDeLosGoblins } from "./areas/PasoDeLosGoblins.js";
+import { ValleDeLasSombras } from "./areas/ValleDeLasSombras.js";
 import { PocionFuerza } from "./PocionFuerza.js";
 import { Heroe } from "./Heroe.js";
 import { Inventario } from "./Inventario.js";
@@ -27,11 +29,12 @@ export class Juego extends HTMLElement{
     }
     investigar(){
         if(this.heroe.getVidaMaxima>0){
-            if(this.opcion == "" || this.opcion.getVidaMaxima <= 0 || this.opcion instanceof PocionFuerza ){
-                const Opciones = [Orco, Goblin, Kobold, PocionFuerza];
+            if(this.opcion == "" || this.opcion.getEncontrar.getVidaMaxima <= 0 || this.opcion.getEncontrar instanceof PocionFuerza ){
+                const Opciones = [ClaroDeLaAlianza, Colina, LagunaEncantada, PasoDeLosGoblins, ValleDeLasSombras];
                 this.opcion = new Opciones[Math.floor(Math.random()*Opciones.length)]
-                console.log(this.opcion)
-                if(this.opcion === PocionFuerza){
+                this.loguear(`Entraste en ${this.opcion.getNombreArea}`)
+                console.log(this.opcion.getEncontrar)
+                if(this.opcion.getEncontrar === PocionFuerza){
                     this.loguear("Encontraste una pocion de fuerza, agregala al inventario");
                     
                 }
@@ -49,13 +52,13 @@ export class Juego extends HTMLElement{
     }
     atacar(daño=this.heroe.getAtaque){
         if(this.heroe.getVidaMaxima>0){
-            if(this.opcion.getVidaMaxima > 0){
-                this.opcion.setVidaMonstruo = -daño
-                this.loguear(`Atacas a ${this.opcion.nombre}! Le sacas ${this.heroe.getAtaque} de vida`);
+            if( this.opcion.getEncontrar.getVidaMaxima > 0){
+                this.opcion.getEncontrar.setVidaMonstruo = -daño
+                this.loguear(`Atacas a ${this.opcion.getEncontrar.nombre}! Le sacas ${this.heroe.getAtaque} de vida`);
                 console.log(this.opcion);
-                if(this.opcion.getVidaMaxima > 0){
-                    this.heroe.setVida = -this.opcion.getAtaque;
-                    this.loguear(`Te ataca ${this.opcion.nombre}! Te saca ${this.opcion.getAtaque} de vida`);
+                if(this.opcion.getEncontrar.getVidaMaxima > 0){
+                    this.heroe.setVida = -this.opcion.getEncontrar.getAtaque;
+                    this.loguear(`Te ataca ${this.opcion.getEncontrar.nombre}! Te saca ${this.opcion.getEncontrar.getAtaque} de vida`);
                     console.log(this.heroe)
                 }else{
                     this.loguear("El monstruo esta muerto")
@@ -109,7 +112,7 @@ export class Juego extends HTMLElement{
         botonReiniciar.addEventListener("click", () => this.reiniciar());
 
         let botonAgregarInventario = this.shadowRoot.querySelector("#agregarAlInventarioButton");
-        botonAgregarInventario.addEventListener("click", () => this.agregarItem(this.opcion));
+        botonAgregarInventario.addEventListener("click", () => this.agregarItem(this.opcion.getEncontrar));
 
         let botonUtilizarItem = this.shadowRoot.querySelector("#utilizarItemButton");
         botonUtilizarItem.addEventListener("click", () => this.utilizarItem());
