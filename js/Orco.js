@@ -4,5 +4,7 @@ export class Orco extends Monstruo{
         super();
         this.setNombreMonstruo = "Orco";
         this.setVidaMonstruo = 50;
+        this.setAtaqueMonstruo = 10;
+        this.getAtaque;
     }
 }

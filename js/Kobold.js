@@ -4,5 +4,7 @@ export class Kobold extends Monstruo{
         super();
         this.setNombreMonstruo = "Kobold";
         this.setVidaMonstruo = -30;
+        this.setAtaqueMonstruo = -20;
+        this.getAtaque;
     }
 }

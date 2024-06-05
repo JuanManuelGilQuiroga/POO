@@ -4,5 +4,7 @@ export class Goblin extends Monstruo{
         super();
         this.setNombreMonstruo = "Goblin";
         this.setVidaMonstruo = -50;
+        this.setAtaqueMonstruo = -30;
+        this.getAtaque;
     }
 }

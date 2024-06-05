@@ -51,8 +51,15 @@ export class Juego extends HTMLElement{
         if(this.heroe.getVidaMaxima>0){
             if(this.opcion.getVidaMaxima > 0){
                 this.opcion.setVidaMonstruo = -daño
-                this.loguear(`Atacas a ${this.opcion.nombre}! Le sacas ${this.heroe.getAtaque} de vida`)
-                console.log(this.opcion)
+                this.loguear(`Atacas a ${this.opcion.nombre}! Le sacas ${this.heroe.getAtaque} de vida`);
+                console.log(this.opcion);
+                if(this.opcion.getVidaMaxima > 0){
+                    this.heroe.setVida = -this.opcion.getAtaque;
+                    this.loguear(`Te ataca ${this.opcion.nombre}! Te saca ${this.opcion.getAtaque} de vida`);
+                    console.log(this.heroe)
+                }else{
+                    this.loguear("El monstruo esta muerto")
+                }
             } else{
                 this.loguear("El monstruo esta muerto")
             }
